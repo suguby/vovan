@@ -37,7 +37,7 @@
 #    Did gyre and gimble in the wabe;
 #    All mimsy were the borogoves,
 #    And the mome raths outgrabe.
-#    	      #
+#             #
 #             #
 #             #
 #             #
@@ -52,3 +52,32 @@
 #    ########################
 #    ,.;ADTabdeghilmnorstuvwy
 
+file_name = input(
+    'Введите имя файла без расширения(поддерживается только .txt): ')
+
+f = open(file_name + '.txt', 'r')
+long_str = f.read().strip()
+long_str = ''.join(long_str.split())
+
+number_of_letters = {}
+
+for letter in long_str:
+    number_of_letters[letter] = number_of_letters.get(letter, 0) + 1
+
+sort_number_of_letters = [list(x) for x in number_of_letters.items()]
+sort_number_of_letters.sort()
+
+width_histogram = len(sort_number_of_letters)
+height_histogram = max(number_of_letters.values())
+sort_letters = ''.join([x[0] for x in sort_number_of_letters])
+histogram = [[' '] * width_histogram for x in range(height_histogram)]
+
+for i in range(height_histogram):
+    for j in range(width_histogram):
+        if sort_number_of_letters[j][1] > 0:
+            histogram[i][j] = '#'
+            sort_number_of_letters[j][1] -= 1
+
+for row in histogram[::-1]:
+    print(''.join(row))
+print(sort_letters)
