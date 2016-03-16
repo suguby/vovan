@@ -27,7 +27,8 @@
 
 #  Примеры
 
-   `Hello, world!
+<code><pre>
+   Hello, world!
         #
         ##
    #########
@@ -50,5 +51,5 @@
          ##############  ##
    #  #  ############## ###
    ########################
-   ,.;ADTabdeghilmnorstuvwy`
-
+   ,.;ADTabdeghilmnorstuvwy
+</pre></code>
